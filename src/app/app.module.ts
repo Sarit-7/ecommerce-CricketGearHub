@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchComponent } from './componenet/search/search.component';
 import { ProductCategoryMenuComponent } from './componenet/product-category-menu/product-category-menu.component';
 import { ProductDetailsComponent } from './componenet/product-details/product-details.component';
+import { CartStatusComponent } from './componenet/cart-status/cart-status.component';
 
 const routes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     ProductListComponent,
     SearchComponent,
     ProductDetailsComponent,
+    CartStatusComponent,
   ],
   imports: [
     BrowserModule,

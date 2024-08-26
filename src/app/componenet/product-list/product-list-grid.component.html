@@ -4,25 +4,30 @@
       <div class="row">
         <div *ngFor="let tempProduct of products" class="col-md-3">
           <div class="product-box">
-            <a routerLink="/products/{{ tempProduct.id }}">
+            <a [routerLink]="['/products', tempProduct.id]">
               <img
-                src="{{ tempProduct.imageUrl }}"
+                [src]="tempProduct.imageUrl"
                 class="img-responsive"
-                alt="{{ tempProduct.name }}"
+                [alt]="tempProduct.name"
               />
             </a>
-            <a routerLink="/products/{{ tempProduct.id }}">
+            <a [routerLink]="['/products', tempProduct.id]">
               <h1>{{ tempProduct.name }}</h1>
             </a>
             <div class="price">
               {{ tempProduct.unitPrice | currency : "INR" }}
             </div>
-            <a href="#" class="primary-btn">Add To Cart</a>
+            <button
+              (click)="addToCart(tempProduct)"
+              class="btn btn-primary btn-sm"
+            >
+              Add To Cart
+            </button>
           </div>
         </div>
 
         <div
-          *ngIf="products?.length == 0"
+          *ngIf="products?.length === 0"
           class="alert alert-warning col-md-12"
           role="alert"
         >
